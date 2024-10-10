@@ -164,7 +164,7 @@ body {
     transition: all 0.3s ease;
 }
 
-#home-window { top: 50vh; left: 5%; }
+#home-window { top: 0%vh; left: 5%; }
 #music-window { 
     top: -190px; 
     left: 35%; 
@@ -210,13 +210,15 @@ body {
         margin: 5px auto;
     }
 
-    #merch-window {
+    #home-window {
         order: -1;
     }
-
-    #home-window {
+    
+    #merch-window {
         order: 0;
     }
+
+    
 
     #music-window {
         order: 1;
