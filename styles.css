@@ -1,0 +1,1020 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+    color: #000;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url('DSC04396.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+body {
+    overflow-y: auto;
+}
+
+/* Start table styles */
+.start-table {
+    position: fixed;
+    bottom: 40px; /* Set to match the taskbar height */
+    left: 0;
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    z-index: 9999; /* Set just below the taskbar's z-index */
+    font-size: 14px;
+}
+
+/* Newsletter confirmation window styles */
+#newsletter-confirmation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    font-family: 'Roboto Mono', monospace;
+    z-index: 10000;
+}
+
+#newsletter-confirmation .window-header {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 2px 5px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#newsletter-confirmation .window-content {
+    padding: 10px;
+}
+
+#newsletter-confirmation .close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.start-table th, .start-table td {
+    padding: 5px 10px;
+    border: 1px solid #808080;
+}
+
+.start-table th {
+    background-color: #000080;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.start-table .ticket-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+.start-table .ticket-link:hover {
+    text-decoration: underline;
+}
+
+.start-table tr {
+    height: 35px; /* Increased fixed height for all rows */
+}
+
+.start-table td {
+    vertical-align: middle; /* Center content vertically */
+}
+
+.start-table td:empty::after {
+    content: "\00a0"; /* Add a non-breaking space to empty cells */
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.image-grid a img {
+    width: 100%;
+    height: auto;
+}
+
+
+#logo-container {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#logo {
+    max-width: 100%; /* Makes sure the logo scales with the container width */
+    height: auto; /* Maintains the aspect ratio */
+    max-height: 100%; /* Ensures the logo fits within the container's height */
+}
+
+
+#content-wrapper {
+    width: 100%;
+}
+
+#desktop {
+    width: 100%;
+    min-height: 150vh; /* Increased to allow scrolling */
+    position: relative;
+    box-sizing: border-box;
+}
+
+.window {
+    position: absolute;
+    margin: 10px;
+    width: 100%;
+    max-width: 1018.5px;
+    height: auto;
+    max-height: 850px;
+}
+
+.window {
+    position: absolute;
+    margin: 10px;
+    width: 100%;
+    max-width: 1018.5px;
+    height: auto;
+    max-height: 850px;
+    transition: all 0.3s ease;
+}
+
+#home-window { top: 50vh; left: 5%; }
+#music-window { 
+    top: -190px; 
+    left: 35%; 
+    width: 1018.5px;
+    height: 793.5px;
+}
+#merch-window { 
+    top: calc(50vh - 600px);
+    left: 15%;
+    z-index: 10;
+    width: 604px;
+    height: 750px;
+}
+#tracklist-window {
+    left: 76%;
+    top: 0%;
+    width: 500px;
+    height: 500px;
+}
+
+/* Media query for smaller screens like phones */
+@media (max-width: 768px) {
+    #desktop {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .window {
+        position: static;
+        margin: 5px auto;
+        width: 95%;
+        max-width: none;
+        height: auto;
+        box-sizing: border-box;
+    }
+
+    #logo-container {
+        order: -2;
+        width: 95%;
+        margin: 5px auto;
+    }
+
+    #merch-window {
+        order: -1;
+    }
+
+    #home-window {
+        order: 0;
+    }
+
+    #music-window {
+        order: 1;
+    }
+
+    #tracklist-window {
+        order: 2;
+    }
+
+    #home-window, #music-window, #merch-window, #tracklist-window {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 95%;
+        height: auto;
+        display: block;
+        margin: 5px auto;
+    }
+
+    .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .image-grid img {
+        width: 100%;
+        height: auto;
+    }
+
+    .window-content {
+        padding: 10px;
+    }
+}
+
+.merch-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 40px); /* Adjust for window header */
+}
+
+.merch-image {
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+
+#home-window { 
+    top: 50vh; 
+    left: 5%; 
+    z-index: 5;  /* Ensure it's below the merch window */
+}
+
+.merch-container {
+    width: 100%;
+    height: calc(100%); /* Adjusted for title and form */
+}
+
+.merch-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.form-row {
+    display: flex;
+}
+
+.form-group {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+.purchase-form select,
+.purchase-form button {
+    font-size: 16px;
+    padding: 8px 12px;
+    width: 100%;
+}
+
+.purchase-form button {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.purchase-form button:hover {
+    background-color: #0000b3;
+}
+
+.product-details {
+    margin-bottom: 20px;
+}
+
+.product-details ul {
+    padding-left: 20px;
+    font-size: large;
+}
+
+/* Newsletter confirmation window styles */
+#newsletter-confirmation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#newsletter-confirmation .window-header {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#newsletter-confirmation .window-content {
+    padding: 20px;
+    text-align: center;
+}
+
+#newsletter-confirmation p {
+    font-size: 16px;
+    margin-bottom: 0;
+    color: #000000;
+}
+
+/* Ensure all windows have the fading effect */
+.window {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.add-to-cart-btn, #checkout-button {
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    display: block;
+}
+
+.add-to-cart-btn:hover, #checkout-button:hover {
+    background-color: #0000b3;
+}
+
+#custom-alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000080;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    z-index: 9999;
+}
+
+.merch-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 50px); /* Adjusted for window header */
+    padding: 5px; /* Added padding for the merch container */
+    box-sizing: border-box; /* Ensures padding is included in height calculation */
+}
+
+.merch-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Window title and controls styling remains the same */
+.window-title {
+    font-size: 14px;
+}
+
+.window-controls button {
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+}
+#shows-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52.5%, -50%);
+    width: 95%;
+    height: 95%;
+    z-index: 9999;}
+
+/* Adjust the content of the music window to fit the new size */
+#music-window .window-content {
+    width: 100%;
+    height: calc(100% - 30px); /* Subtracting the height of the window header */
+}
+
+#music-window .video-player {
+    width: 100%;
+    height: 100%;
+}
+
+#music-window .video-player iframe {
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 768px) {
+    #music-window {
+        top: 0; /* Align to the top */
+        left: 5px; /* 5px border on the left */
+        right: 5px; /* 5px border on the right */
+        transform: translate(0%, 0%); /* Fully center */
+        width: calc(100% - 10px); /* Fill the screen but leave a 5px border on left and right */
+        max-width: 95%;
+        height: auto; /* Adjust the height for smaller screens */
+    }
+
+    #music-window .window-content {
+        width: 100%;
+        height: auto; /* Adjust height dynamically */
+    }
+
+    #music-window .video-player {
+        width: 100%;
+        height: auto; /* Adjust player to screen */
+    }
+
+    #music-window .video-player iframe {
+        width: 100%;
+        height: auto; /* Ensure the iframe adjusts */
+    }
+}
+
+
+.window {
+    position: absolute;
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    min-width: 200px;
+    min-height: 150px;
+    overflow: hidden;
+    resize: both; /* Allow windows to be resized by the user */
+}
+
+#home-window { left: 0; }
+#music-window { left: 40%; }
+#shows-window { left: 50%; }
+
+.window {
+    position: absolute;
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    min-width: 200px;
+    min-height: 150px;
+}
+
+.window-header {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 2px 4px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.window-title {
+    font-size: 14px;
+}
+
+.window-controls button {
+    width: 16px;
+    height: 16px;
+    background-color: #c0c0c0;
+    border: 1px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    font-size: 10px;
+    line-height: 1;
+    margin-left: 2px;
+    padding: 0;
+}
+
+.window-content {
+    padding: 5px; /* Added padding */
+    overflow-y: auto; /* Ensures content is scrollable if it overflows */
+    max-height: calc(100% - 10px); /* Adjusted to account for padding */
+    text-align: center; /* Centered text */
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+#newsletter-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    z-index: 9999;
+}
+
+#newsletter-window .window-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 30px);
+}
+
+#newsletter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#newsletter-form input[type="email"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#newsletter-form button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000080;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+#newsletter-form button:hover {
+    background-color: #0000a0;
+}
+
+
+.merch-image {
+    max-width: 100%;
+    height: auto;
+}
+select, button {
+    font-family: 'MS Sans Serif', Arial, sans-serif;
+    font-size: 12px;
+}
+
+button {
+    background-color: #c0c0c0;
+    border: 1px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    padding: 2px 8px;
+    cursor: pointer;
+}
+
+button:active {
+    border: 1px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+#home-window {
+    top: 5%;
+    left: 5%;
+    width: 500px;
+    height: 300px;
+}
+
+
+.window-content {
+    padding: 10px;
+    overflow: hidden;
+    height: calc(100% - 20px); /* Subtracting the height of the window header */
+    box-sizing: border-box;
+}
+
+.video-player {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #c0c0c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-player iframe {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: none;
+    object-fit: cover;
+}
+
+.window-content {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(100% - 30px);
+}
+
+.merch-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.merch-image {
+    max-width: 60%;
+    height: auto;
+    margin-right: 15px;
+}
+
+.purchase-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 35%;
+}
+
+.purchase-form select,
+.purchase-form button {
+    width: 100%;
+    padding: 5px;
+}
+
+#merch-window h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.start-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures borders collapse into a single border */
+}
+
+.start-table th, .start-table td {
+    padding: 5px; /* Padding for cells */
+    text-align: left; /* Aligns text to the left */
+    border-bottom: 1px solid #ddd; /* Bottom border for cells */
+}
+
+.start-table tr:nth-child(even) {
+    background-color: #c0c0c0; /* Light background for even rows */
+}
+
+.start-table tr:nth-child(odd) {
+    background-color: #dbdbdb; /* Light gray background for odd rows */
+}
+
+.start-table tr:first-child th {
+    text-align: center; /* Center aligns header text */
+}
+
+.ticket-link {
+    display: inline-block;
+    padding: 2px 5px;
+    background-color: #c0c0c0;
+    border: 1px solid #808080;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Adjust positioning and scaling with smaller screens */
+@media (max-width: 1600px) {
+    .window {
+        width: 80%; /* Adjust width based on screen size */
+        height: auto; /* Let height adjust with content */
+    }
+    #home-window { top: 5vh; left: 5%; }
+    #music-window { top: 30vh; left: 5%; }
+    #merch-window { top: 60vh; left: 15%; }
+    #shows-window { top: 90vh; left: 5%; }
+}
+
+/* Taskbar styles */
+#taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    z-index: 10000; /* Ensure taskbar is always on top */
+}
+
+#taskbar-items {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Adjust z-index for windows */
+.window {
+    z-index: 1000; /* Lower than taskbar, but still high */
+}
+
+#merch-window {
+    z-index: 1001; /* Slightly higher than other windows, but lower than taskbar */
+}
+
+#start-button {
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    padding: 2px 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 10px;
+    height: 30px;
+}
+
+#start-button:active {
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.taskbar-item {
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    padding: 2px 8px;
+    margin-right: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskbar-item.active {
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+    background-color: #d3d3d3;
+}
+.stream-button:hover {
+    background-color: #333;
+}
+
+/* Cart icon styles */
+#cart-icon {
+    position: relative;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+#cart-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+#cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+}
+
+/* Cart window styles */
+#cart-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: auto;
+    max-height: 75vh;
+    overflow-y: auto;
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    box-sizing: border-box;
+    z-index: 9999;
+    display: block !important;
+}
+
+@media (max-width: 900px) {
+    #cart-window {
+        width: 90%;
+        max-width: 800px;
+    }
+}
+
+#cart-window .checkout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #008000;
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    margin-top: 10px;
+}
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    z-index: 10001;
+}
+
+#cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#cart-table th, #cart-table td {
+    padding: 10px;
+    border: 1px solid #808080;
+    text-align: left;
+}
+
+#cart-table th {
+    background-color: #000080;
+    color: #ffffff;
+    font-size: 14px; /* Match the size of window title */
+}
+
+#cart-total {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#checkout-button, .remove-item {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #c0c0c0;
+    color: #000000;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.remove-item {
+    margin: 0;
+    padding: 5px 10px;
+}
+
+/* Cart icon styles */
+#cart-icon {
+    position: relative;
+    margin-left: auto;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    z-index: 10002;
+    width: 300px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.custom-alert .window-content {
+    padding: 20px;
+    text-align: center;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+#checkout-button:hover {
+    background-color: #d3d3d3;
+}
+
+#checkout-button:active {
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+.music-item ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.music-item ul li {
+    margin-bottom: 10px;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 2px; /* Space between items */
+    justify-items: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    padding: 2px; /* Space around the grid */
+    width: 400px; /* Restrict width */
+    height: 200px; /* Restrict height */
+    position: absolute; /* Position relative to top-left of page */
+    top: 500px; /* Distance from top of the page */
+    left: 80px; /* Distance from left of the page */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text and icon */
+    text-align: center;
+}
+
+.social-icon {
+    width: 60px; /* Adjust the size of the icons */
+    height: 60px; /* Same height to keep consistency */
+}
+
+.social-text {
+    font-size: 12px; /* Small text below the icon */
+    color: #ffffff; /* Adjust color as per your design */
+    margin-top: 8px; /* Space between icon and text */
+}
+
+
+
+
+.contact-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .music-item {
+        flex-basis: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        height: auto;
+    }
+
+    nav ul {
+        margin-top: 20px;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+}
