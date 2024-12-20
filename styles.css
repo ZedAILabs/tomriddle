@@ -1566,3 +1566,50 @@ body {
         padding: 10px;
     }
 }
+
+@media (max-width: 768px) {
+    /* Adjust merchandise window height */
+    #merch-window {
+        order: -1;
+        margin-top: -250px !important;
+        min-height: 750px !important; /* Double the height */
+        height: auto !important;
+    }
+
+    /* Make tracklist window square */
+    #tracklist-window {
+        order: 2;
+        width: 95% !important;
+        height: 500px !important; /* Make it square to fit 4 artworks */
+        aspect-ratio: 1/1;
+    }
+
+    /* Ensure content fills the windows properly */
+    .merch-container {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 40px); /* Adjust for window header */
+    }
+
+    .merch-image {
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    /* Ensure proper content display in tracklist */
+    #tracklist-window .window-content {
+        height: calc(100% - 30px) !important; /* Account for header */
+        overflow-y: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    #tracklist-window img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+}
