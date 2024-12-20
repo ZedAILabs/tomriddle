@@ -205,21 +205,57 @@ body {
 
 /* Media query for smaller screens like phones */
 @media (max-width: 768px) {
-    #desktop {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        padding: 0;
+    /* Reset all window positions and sizes */
+    #home-window, #music-window, #merch-window, #tracklist-window {
+        position: static !important;
+        width: 95% !important;
+        height: auto !important;
+        max-width: none !important;
+        max-height: none !important;
+        margin: 10px auto !important;
+        transform: none !important;
+        left: auto !important;
+        top: auto !important;
     }
 
-    .window {
-        position: static;
-        margin: 5px auto;
-        width: 95%;
-        max-width: none;
-        height: auto;
-        box-sizing: border-box;
+    /* Force proper stacking order */
+    #desktop {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 10px !important;
+    }
+
+    /* Fix content overflow */
+    .window-content {
+        width: 100% !important;
+        height: auto !important;
+        overflow: auto !important;
+        max-height: 80vh !important;
+    }
+
+    /* Ensure iframes scale properly */
+    .window iframe {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+    }
+
+    /* Fix newsletter popup */
+    #newsletter-confirmation {
+        width: 90% !important;
+        max-width: 300px !important;
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        z-index: 10000 !important;
+    }
+
+    /* Ensure proper scrolling */
+    body, html {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
     }
 
     #logo-container {
