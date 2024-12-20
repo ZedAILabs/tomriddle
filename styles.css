@@ -1613,3 +1613,34 @@ body {
         object-fit: cover;
     }
 }
+
+@media (max-width: 768px) {
+    #content-wrapper {
+        width: 100%;
+        height: auto;
+        position: relative;
+        overflow: visible;
+        z-index: 2;
+        margin-top: 200px; /* Reduced from 400px */
+    }
+
+    #logo-container {
+        order: -2;
+        width: 95%;
+        margin: 5px auto;
+    }
+
+    #merch-window {
+        order: -1;
+        margin-top: -150px !important; /* Adjusted to account for new content wrapper position */
+        min-height: 750px !important;
+        height: auto !important;
+        z-index: 10; /* Ensure it stays above other elements */
+    }
+
+    /* Ensure proper stacking of other windows */
+    #home-window {
+        order: 0;
+        margin-top: 20px !important;
+    }
+}
