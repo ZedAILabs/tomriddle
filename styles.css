@@ -1571,9 +1571,11 @@ body {
     /* Adjust merchandise window height */
     #merch-window {
         order: -1;
-        margin-top: -250px !important;
-        min-height: 750px !important; /* Double the height */
+        margin-top: -150px !important;
         height: auto !important;
+        min-height: auto !important; /* Remove fixed min-height */
+        width: 604px !important;
+        max-width: 95% !important;
     }
 
     /* Make tracklist window square */
@@ -1588,12 +1590,15 @@ body {
     .merch-container {
         display: flex;
         flex-direction: column;
-        height: calc(100% - 40px); /* Adjust for window header */
+        height: auto; /* Let it adjust to content */
+        padding: 5px; /* Added padding for the merch container */
+        box-sizing: border-box; /* Ensures padding is included in height calculation */
     }
 
     .merch-image {
-        max-height: 100%;
-        object-fit: contain;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
     }
 
     /* Ensure proper content display in tracklist */
