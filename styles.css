@@ -1458,30 +1458,60 @@ body {
 
 @media screen and (max-width: 768px) {
     #content-wrapper {
-        margin-top: 0px; /* Adjusted from -450px to -300px to move content down */
-        padding-top: 0;
-    }
-
-    /* Logo adjustments */
-    #logo-container {
-        margin: 20px auto;
-        width: 100%;
-        position: relative;
-        z-index: 1;
-        overflow: visible;
+        margin-top: 200px;
+        padding: 10px;
     }
 
     #logo {
-        width: 100vw;
-        height: auto;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-        max-width: none;
-        margin-top: 50px;
-        display: block;
-        margin-bottom: 20px;
+        width: 90%;
+        margin-top: 60px;
     }
 
-    /* Rest of your existing mobile styles... */
+    .window-header {
+        padding: 5px;
+    }
+
+    .window-title {
+        font-size: 12px;
+    }
+
+    .merch-container {
+        height: auto;
+    }
+
+    .purchase-form {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    #content-wrapper {
+        margin-top: 200px;
+        padding: 10px;
+    }
+
+    #logo {
+        width: 90%;
+        margin-top: 60px;
+    }
+
+    .window-header {
+        padding: 5px;
+    }
+
+    .window-title {
+        font-size: 12px;
+    }
+
+    .merch-container {
+        height: auto;
+    }
+
+    .purchase-form {
+        padding: 10px;
+    }
 }
