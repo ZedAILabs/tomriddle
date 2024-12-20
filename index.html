@@ -5,67 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tom Riddle - Retro Windows Experience</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="global-navigation">
+        <button class="back-button" onclick="window.history.back()">←</button>
+        <div class="address-bar">
+            <span class="path-label">Address:</span>
+            <input type="text" id="current-path" class="path-display" readonly>
+        </div>
+    </div>
+    <div class="y2k-social-links">
+        <div class="social-ring">
+            <a href="link1" class="social-link spotify">
+                <img src="spotify.png" alt="Spotify" class="social-icon">
+                <span class="social-glow">Spotify</span>
+            </a>
+            <a href="link2" class="social-link apple-music">
+                <img src="apple-music.png" alt="Apple Music" class="social-icon">
+                <span class="social-glow">Apple Music</span>
+            </a>
+            <a href="link3" class="social-link soundcloud">
+                <img src="soundcloud.png" alt="Soundcloud" class="social-icon">
+                <span class="social-glow">Soundcloud</span>
+            </a>
+            <a href="link4" class="social-link youtube">
+                <img src="youtube.png" alt="YouTube" class="social-icon">
+                <span class="social-glow">YouTube</span>
+            </a>
+            <a href="link5" class="social-link facebook">
+                <img src="facebook.png" alt="Facebook" class="social-icon">
+                <span class="social-glow">Facebook</span>
+            </a>
+            <a href="link6" class="social-link instagram">
+                <img src="instagram.png" alt="Instagram" class="social-icon">
+                <span class="social-glow">Instagram</span>
+            </a>
+            <a href="link7" class="social-link x">
+                <img src="x.png" alt="X" class="social-icon">
+                <span class="social-glow">X</span>
+            </a>
+            <a href="link8" class="social-link discord">
+                <img src="discord.png" alt="Discord" class="social-icon">
+                <span class="social-glow">Discord</span>
+            </a>
+        </div>
+    </div>
     <div id="logo-container">
         <img src="Asset 2.svg" alt="Tom Riddle Logo" id="logo">
     </div>
     
-    <div class="social-grid">
-        <div class="social-item">
-            <a href="link1"><img src="spotify.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">Spotify</p>
-        </div>
-        <div class="social-item">
-            <a href="link1"><img src="apple-music.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">Apple Music</p>
-        </div>
-        <div class="social-item">
-            <a href="link1"><img src="soundcloud.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">Soundcloud</p>
-        </div>
-        <div class="social-item">
-            <a href="link1"><img src="youtube.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">YouTube</p>
-        </div>
-        <div class="social-item">
-            <a href="link1"><img src="facebook.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">Facebook</p>
-        </div>
-        <div class="social-item">
-            <a href="link1"><img src="instagram.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">Instagram</p>
-        </div>
-        <div class="social-item">
-            <a href="link1"><img src="x.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">X</p>
-        </div>
-        <div class="social-item">
-            <a href="link1"><img src="discord.png" alt="Image 1" class="social-icon"></a>
-            <p class="social-text">Discord</p>
-        </div>
-    </div>
-    
     <div id="content-wrapper">
         <div id="desktop">
-            <div class="window" id="home-window">
-                <div class="window-header">
-                    <span class="window-title">Home</span>
-                    <div class="window-controls">
-                        <button class="minimize">_</button>
-                        <button class="maximize">□</button>
-                        <button class="close">×</button>
-                    </div>
-                </div>
-                <div class="window-content">
-                    <h1>Welcome to Tom Riddle</h1>
-                    <p><em>Navigate through the windows to unlock exclusive insights into Tom's sound, limited-edition merch, and future shows.
-                        The experience is yours to explore.</em></p>
-                    <p>Brisbane producer Tom Riddle has quickly established himself as one of Queensland's rising talents. <br><br>
-                            Starting young, he made his festival debut at just 16. In 2020, Tom released a series of club-ready tracks that captured attention and kept the energy high across all platforms.<br><br>
-                            His sound is defined by deep, driving bass lines, intricate highs, and sharp synths, blending together to create a distinctive style that evolves with every release.</p>
+        <div class="window" id="home-window">
+            <div class="window-header">
+                <span class="window-title">Home</span>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
                 </div>
             </div>
+            <div class="window-content">
+                <h1>Welcome to Tom Riddle</h1>
+                <p><em>Navigate through the windows to unlock exclusive insights into Tom's sound, limited-edition merch, and future shows.
+                    The experience is yours to explore.</em></p>
+                <p>Brisbane producer Tom Riddle has quickly established himself as one of Queensland's rising talents. <br><br>
+                        Starting young, he made his festival debut at just 16. In 2020, Tom released a series of club-ready tracks that captured attention and kept the energy high across all platforms.<br><br>
+                        His sound is defined by deep, driving bass lines, intricate highs, and sharp synths, blending together to create a distinctive style that evolves with every release.</p>
+            </div>
+        </div>
 
             
 
@@ -140,14 +149,14 @@
             </div>
             <div class="window-content">
                 <div class="image-grid">
-                    <a href="link1"><img src="3.jpg" alt="Image 1"></a>
-                    <a href="link2"><img src="Focus.jpg" alt="Image 2"></a>
-                    <a href="link3"><img src="Nibiru.jpg" alt="Image 3"></a>
-                    <a href="link4"><img src="ETHANOL.jpg" alt="Image 4"></a>
-                    <a href="link5"><img src="ALL GIRLS ARE THE SAME.jpg" alt="Image 5"></a>
-                    <a href="link6"><img src="Coming Down.jpg" alt="Image 6"></a>
-                    <a href="link7"><img src="Fool Me Twice.jpg" alt="Image 7"></a>
-                    <a href="link8"><img src="Sublime.jpg" alt="Image 8"></a>
+                    <a href="#" data-song="3"><img src="3.jpg" alt="Tom Riddle 3"></a>
+                    <a href="#" data-song="Focus"><img src="Focus.jpg" alt="Tom Riddle Focus"></a>
+                    <a href="#" data-song="Nibiru"><img src="Nibiru.jpg" alt="Tom Riddle Nibiru"></a>
+                    <a href="#" data-song="ETHANOL"><img src="ETHANOL.jpg" alt="Tom Riddle ETHANOL"></a>
+                    <a href="#" data-song="ALL GIRLS ARE THE SAME"><img src="ALL GIRLS ARE THE SAME.jpg" alt="Tom Riddle ALL GIRLS ARE THE SAME"></a>
+                    <a href="#" data-song="Coming Down"><img src="Coming Down.jpg" alt="Tom Riddle Coming Down"></a>
+                    <a href="#" data-song="Fool Me Twice"><img src="Fool Me Twice.jpg" alt="Tom Riddle Fool Me Twice"></a>
+                    <a href="#" data-song="Sublime"><img src="Sublime.jpg" alt="Tom Riddle Sublime"></a>
                 </div>
             </div>
         </div>
@@ -157,14 +166,28 @@
     <div id="taskbar">
         <button id="start-button">Start</button>
         <div id="taskbar-items"></div>
-            <div id="cart-icon">Cart (0)</div>
+        <div id="cart-icon" style="display: none;">Cart (0)</div>
+    </div>
+
+    <div class="window" id="cart-window">
+        <div class="window-header">
+            <span class="window-title">Cart</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div id="cart-items"></div>
+            <div id="cart-total"></div>
         </div>
     </div>
 
-    
-
-    <div id="custom-alert" style="display: none;">
-        <span id="custom-alert-message"></span>
+    <div id="custom-alert" class="custom-alert" style="display: none;">
+        <div class="window-content">
+            <p id="custom-alert-message"></p>
+        </div>
     </div>
 
     <div id="newsletter-confirmation" class="window" style="display: none;">
@@ -262,7 +285,25 @@
         <tr><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
 
-    
+    <div class="window" id="newsletter-window">
+        <div class="window-header">
+            <span class="window-title">Newsletter Sign-up</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <h2>Stay Updated</h2>
+            <p>Sign up for our newsletter to get the latest news and updates!</p>
+            <form id="newsletter-form" action="https://formspree.io/f/xovqaezq" method="POST">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="hidden" name="_subject" value="New Newsletter Subscription">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
 
     <div id="custom-alert" class="custom-alert" style="display: none;">
         <div class="window-header">
@@ -273,6 +314,64 @@
         </div>
         <div class="window-content">
             <p id="custom-alert-message"></p>
+        </div>
+    </div>
+
+    <!-- Add this template for the streaming window -->
+    <div class="window" id="streaming-window" style="display: none;">
+        <div class="window-header">
+            <span class="window-title">Stream Track</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content streaming-content">
+            <img id="stream-artwork" src="" alt="Track Artwork" class="stream-artwork">
+            <div class="streaming-links">
+                <a href="#" class="stream-link spotify">
+                    <img src="spotify.png" alt="Spotify">
+                    <span>Listen on Spotify</span>
+                </a>
+                <a href="#" class="stream-link apple">
+                    <img src="apple-music.png" alt="Apple Music">
+                    <span>Listen on Apple Music</span>
+                </a>
+                <a href="#" class="stream-link soundcloud">
+                    <img src="soundcloud.png" alt="SoundCloud">
+                    <span>Listen on SoundCloud</span>
+                </a>
+                <a href="#" class="stream-link youtube">
+                    <img src="youtube.png" alt="YouTube">
+                    <span>Watch on YouTube</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this after your tracklist window -->
+    <div class="window" id="music-player-window">
+        <div class="window-header">
+            <span class="window-title">Music Player</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="spotify-playlist">
+                <iframe 
+                    src="https://open.spotify.com/embed/artist/4g1OsF8xTXuPmCBnr9tK2C?utm_source=generator" 
+                    width="100%" 
+                    height="380" 
+                    frameborder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                </iframe>
+            </div>
         </div>
     </div>
 

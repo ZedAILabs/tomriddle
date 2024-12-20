@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Windows 95 Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Payment SDK Scripts -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQ43difdjhM6N8u1KWWBvJ3vN9BxvqnBaBYKbss_ayjilroVG_uJ8Ol2IYrSDQFXEimjv7HAHXTfsi8C&currency=AUD"></script>
+</head>
+<body>
+    <!-- Add the global navigation here, before the checkout window -->
+    <div class="global-navigation">
+        <button class="back-button" onclick="window.history.back()">←</button>
+        <div class="address-bar">
+            <span class="path-label">Address:</span>
+            <input type="text" id="current-path" class="path-display" readonly>
+        </div>
+    </div>
+
+    <!-- Checkout window -->
+    <div class="window" id="checkout-window">
+        <div class="window-header">
+            <span class="window-title">Checkout</span>
+            <div class="window-controls">
+                <button class="minimize">_</button>
+                <button class="maximize">□</button>
+                <button class="close">×</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="payment-methods">
+                <h3>Select Payment Method</h3>
+                
+                <!-- Express Payment Methods with your local icons -->
+                <div class="express-payments">
+                    <div id="paypal-btn-container"></div>
+                </div>
+
+                <!-- Traditional Payment Methods -->
+                <div class="traditional-payments">
+                    <h4>Or pay with card</h4>
+                    <div id="stripe-card-element"></div>
+                    <button id="stripe-submit-btn" class="checkout-submit-btn">Pay with Card</button>
+                </div>
+            </div>
+
+            <form id="checkout-form">
+                <div class="form-section">
+                    <h3>Shipping Information</h3>
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="address" placeholder="Address" required>
+                    <input type="text" name="city" placeholder="City" required>
+                    <input type="text" name="state" placeholder="State" required>
+                    <input type="text" name="postcode" placeholder="Postcode" required>
+                </div>
+
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items"></div>
+                    <div id="checkout-total"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html> 

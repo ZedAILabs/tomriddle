@@ -5,8 +5,11 @@ body, html {
     padding: 0;
     font-family: 'Roboto Mono', monospace;
     color: #000;
-    height: 100%;
+    height: 110vh;
     width: 100%;
+    background-color: #008080;
+    overflow-y: auto;
+    position: relative;
 }
 
 body {
@@ -120,53 +123,53 @@ body {
 
 #logo-container {
     width: 100%;
-    padding: 20px 0;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 #logo {
-    max-width: 80%;
+    width: 100vw;
     height: auto;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: none;
+    margin-top: 20px;
 }
 
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    padding: 20px;
-    justify-content: center;
-    margin-top: 20px; /* Add some space between logo and social icons */
-}
-
-.social-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-}
-
-.social-text {
-    margin-top: 5px;
-    font-size: 12px;
-}
 
 #content-wrapper {
     width: 100%;
-    margin-top: 20px; /* Add space between social icons and windows */
+    height: 110vh;
+    position: relative;
+    overflow: visible;
+    z-index: 2;
+    margin-top: 400px;
 }
 
 #desktop {
     width: 100%;
-    min-height: 100vh;
+    height: 110vh;
     position: relative;
     box-sizing: border-box;
+    padding: 20px;
+}
+
+.window {
+    position: absolute;
+    margin: 10px;
+    width: 100%;
+    max-width: 1018.5px;
+    height: auto;
+    max-height: 850px;
+    z-index: 3; /* Higher than content wrapper */
 }
 
 .window {
@@ -179,103 +182,40 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Desktop layout */
-#home-window { top: 20vh; left: 5%; } /* Moved down to accommodate social icons */
+#home-window { top: 50vh; left: 5%; }
 #music-window { 
-    top: calc(20vh - 190px); 
+    top: 0% !important;
     left: 35%; 
     width: 1018.5px;
     height: 793.5px;
 }
 #merch-window { 
-    top: calc(70vh - 600px);
-    left: 15%;
+    top: 20px !important;
+    left: 18%;
     z-index: 10;
     width: 604px;
     height: 750px;
 }
 #tracklist-window {
     left: 76%;
-    top: 20vh;
+    top: -5%;
     width: 500px;
     height: 500px;
 }
 
 /* Media query for smaller screens like phones */
 @media (max-width: 768px) {
-    #logo-container {
-        padding: 10px 0;
-    }
-
-    #logo {
-        max-width: 60%;
-    }
-
-    .social-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5px;
-        padding: 10px;
-        margin-top: 10px;
-    }
-
-    .social-icon {
-        width: 30px;
-        height: 30px;
-    }
-
-    .social-text {
-        font-size: 10px;
-    }
-
-    #content-wrapper {
-        margin-top: 10px;
-    }
-
     #desktop {
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
         padding: 0;
-        overflow-x: hidden;
     }
 
     .window {
-        position: static !important;
-        margin: 10px auto;
-        width: 90% !important;
-        max-width: none;
-        height: auto !important;
-        left: auto !important;
-        top: auto !important;
-    }
-
-    #home-window {
-        order: 1;
-    }
-
-    #merch-window {
-        order: 2;
-    }
-
-    #music-window {
-        order: 3;
-    }
-
-    #tracklist-window {
-        order: 4;
-    }
-
-    /* Prevent windows from overlapping */
-    .window-content {
-        max-height: 70vh;
-        overflow-y: auto;
-    }
-
-    /* Prevent merch window from reappearing on scroll */
-    #merch-window.closed {
-        display: none !important;
-    }
+        position: static;
+        margin: 5px auto;
         width: 95%;
         max-width: none;
         height: auto;
@@ -288,15 +228,13 @@ body {
         margin: 5px auto;
     }
 
-    #home-window {
+    #merch-window {
         order: -1;
     }
-    
-    #merch-window {
+
+    #home-window {
         order: 0;
     }
-
-    
 
     #music-window {
         order: 1;
@@ -468,14 +406,29 @@ body {
 #custom-alert {
     position: fixed;
     top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 20px;
     background-color: #000080;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    display: none;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 4px;
     z-index: 9999;
+    font-family: 'Roboto Mono', monospace;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+#custom-alert-message {
+    margin: 0;
+    font-size: 14px;
 }
 
 .merch-container {
@@ -819,6 +772,7 @@ button:active {
 #taskbar-items {
     display: flex;
     flex-grow: 1;
+    margin: 0 10px;
 }
 
 /* Adjust z-index for windows */
@@ -850,26 +804,29 @@ button:active {
 }
 
 .taskbar-item {
-    background-color: #c0c0c0;
-    border: 2px solid #ffffff;
-    border-right-color: #808080;
-    border-bottom-color: #808080;
-    padding: 2px 8px;
-    margin-right: 5px;
-    font-size: 12px;
+    background: #c0c0c0;
+    border: 2px solid #fff;
+    border-bottom-color: #424242;
+    border-right-color: #424242;
+    padding: 2px 10px;
+    margin-right: 4px;
     cursor: pointer;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 12px;
+    min-width: 100px;
+    text-align: center;
 }
 
 .taskbar-item.active {
-    border: 2px solid #808080;
-    border-right-color: #ffffff;
-    border-bottom-color: #ffffff;
-    background-color: #d3d3d3;
+    border: 2px solid #848484;
+    border-top-color: #424242;
+    border-left-color: #424242;
+    background: #d4d0c8;
 }
+
+.taskbar-item.hidden {
+    display: none;
+}
+
 .stream-button:hover {
     background-color: #333;
 }
@@ -1038,63 +995,493 @@ button:active {
     margin-bottom: 10px;
 }
 
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    grid-template-rows: repeat(2, auto); /* 2 rows */
-    gap: 2px; /* Space between items */
-    justify-items: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    padding: 2px; /* Space around the grid */
-    width: 400px; /* Restrict width */
-    height: 200px; /* Restrict height */
-    position: absolute; /* Position relative to top-left of page */
-    top: 500px; /* Distance from top of the page */
-    left: 80px; /* Distance from left of the page */
-    box-sizing: border-box; /* Include padding in width/height */
+.y2k-social-links {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9998;
+    width: auto;
 }
 
-.social-item {
+.social-ring {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the text and icon */
-    text-align: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background-color: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    box-shadow: 2px 2px 0 #000000;
+    position: relative;
+}
+
+.social-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #c0c0c0;
+    border: 1px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    padding: 4px;
+}
+
+.social-link:active {
+    border: 1px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
 }
 
 .social-icon {
-    width: 60px; /* Adjust the size of the icons */
-    height: 60px; /* Same height to keep consistency */
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
 }
 
-.social-text {
-    font-size: 12px; /* Small text below the icon */
-    color: #ffffff; /* Adjust color as per your design */
-    margin-top: 8px; /* Space between icon and text */
+.social-glow {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-family: 'Roboto Mono', monospace;
+    color: #000;
+    white-space: nowrap;
+    display: none;
+    background-color: #c0c0c0;
+    padding: 2px 4px;
+    border: 1px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
 }
 
+.social-link:hover .social-glow {
+    display: block;
+}
 
+.social-link:hover {
+    background-color: #d4d0c8;
+}
 
+/* Hover effect */
 
-.contact-info {
-    text-align: center;
+#checkout-window {
+    width: 600px;
+    height: auto;
+    max-height: 80vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#checkout-window .window-content {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-section input {
+    padding: 8px;
+}
+
+.checkout-columns {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.checkout-column {
+    flex: 1;
+    min-width: 0; /* Prevents flex items from overflowing */
+}
+
+.payment-methods {
     margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-    .music-item {
-        flex-basis: 100%;
+.express-payments {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-btn {
+    width: 100px;
+    height: 40px;
+    padding: 8px;
+    background: white;
+    border: 1px solid #808080;
+    cursor: pointer;
+}
+
+.payment-btn img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+#paypal-btn-container {
+    width: 100%;
+    max-width: 250px;
+}
+
+.traditional-payments {
+    border-top: 1px solid #808080;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+#stripe-card-element {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #808080;
+}
+
+.window-navigation {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    background: #c0c0c0;
+    border-bottom: 1px solid #808080;
+    gap: 8px;
+}
+
+.back-button {
+    padding: 2px 8px;
+    font-size: 16px;
+    min-width: 24px;
+    height: 24px;
+    background: #c0c0c0;
+    border: 1px solid #808080;
+    box-shadow: inset 1px 1px #ffffff, inset -1px -1px #404040;
+    cursor: pointer;
+}
+
+.back-button:active {
+    box-shadow: inset 1px 1px #404040, inset -1px -1px #ffffff;
+}
+
+.address-bar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+}
+
+.path-label {
+    font-size: 12px;
+    color: #000;
+}
+
+.path-display {
+    flex: 1;
+    padding: 3px 5px;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 12px;
+    background: #fff;
+    border: inset 1px #808080;
+    color: #000;
+    cursor: default;
+}
+
+.path-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none; /* Hidden by default */
+    background: #fff;
+    border: 1px solid #000;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.address-bar:hover .path-links {
+    display: block; /* Show on hover */
+}
+
+.path-links a {
+    display: block;
+    padding: 4px 8px;
+    color: #000;
+    text-decoration: none;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 12px;
+}
+
+.path-links a:hover {
+    background: #000080;
+    color: #fff;
+}
+
+/* Make sure the global navigation is always visible */
+.global-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    background: #c0c0c0;
+    border-bottom: 1px solid #808080;
+    gap: 8px;
+    z-index: 9999;
+}
+
+/* Add padding to body to account for fixed navigation */
+body {
+    padding-top: 40px;
+}
+
+#streaming-window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    z-index: 1001; /* Higher than other windows but lower than taskbar */
+}
+
+.streaming-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    max-height: 80vh; /* Prevent window from being too tall */
+    overflow-y: auto;
+}
+
+.stream-artwork {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 24px;
+    border: 2px solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.streaming-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stream-link {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-decoration: none;
+    color: #000;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+}
+
+.stream-link:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.stream-link img {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+.stream-link span {
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 14px;
+}
+
+.streaming-links img {
+    filter: invert(1); /* This will make white icons black */
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+}
+
+/* Add styling for the checkout button */
+.checkout-button {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    font-family: "MS Sans Serif", sans-serif;
+}
+
+.checkout-button:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.cart-checkout-btn {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #ffffff #808080 #808080 #ffffff;
+    font-family: "MS Sans Serif", sans-serif;
+    font-size: 12px;
+}
+
+.cart-checkout-btn:active {
+    border-color: #808080 #ffffff #ffffff #808080;
+}
+
+#music-player-window {
+    position: absolute;
+    bottom: 500px;
+    right: 140px;
+    width: 315px;
+    z-index: 999;
+}
+
+.spotify-playlist {
+    width: 100%;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    padding: 2px;
+}
+
+.spotify-playlist iframe {
+    display: block;
+    background: #fff;
+    border: 2px solid;
+    border-color: #808080 #ffffff #ffffff #808080;
+    height: 380px;
+}
+
+/* Base styles remain the same for desktop */
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    /* Container for all windows */
+    body {
+        padding: 10px;
     }
 
-    nav {
-        flex-direction: column;
+    /* Windows positioning */
+    .window {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 95% !important;
+        margin: 20px auto !important; /* Even spacing between windows */
+        transform: none !important;
+        clear: both; /* Prevent floating */
+    }
+
+    #tracklist-window,
+    #music-player-window,
+    #cart-window,
+    #merch-window {
+        display: block;
+        float: none; /* Prevent floating */
+    }
+
+    /* Logo handling */
+    #logo-container {
+        margin: 20px auto;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        overflow: visible;
+    }
+
+    #logo {
+        width: 100vw;
         height: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: none;
+        margin-top: 50px; /* Reduced top margin for mobile */
+        display: block; /* Ensure visibility */
+        margin-bottom: 20px; /* Add space below logo */
     }
 
-    nav ul {
-        margin-top: 20px;
+    /* Merchandise window specific */
+    #merch-window {
+        margin-top: 0 !important; /* Remove top margin for first window */
     }
 
-    nav ul li {
-        margin: 0 15px;
+    /* General window styling */
+    .window {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 95% !important;
+        margin: 20px auto !important;
+        transform: none !important;
+        clear: both;
     }
+
+    /* ... rest of your existing mobile styles ... */
+}
+
+@media screen and (max-width: 768px) {
+    #content-wrapper {
+        margin-top: 0px; /* Adjusted from -450px to -300px to move content down */
+        padding-top: 0;
+    }
+
+    /* Logo adjustments */
+    #logo-container {
+        margin: 20px auto;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        overflow: visible;
+    }
+
+    #logo {
+        width: 100vw;
+        height: auto;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: none;
+        margin-top: 50px;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    /* Rest of your existing mobile styles... */
 }
