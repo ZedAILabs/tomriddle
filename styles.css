@@ -1637,10 +1637,13 @@ body {
 
     #merch-window {
         order: -1;
-        margin-top: -150px !important; /* Adjusted to account for new content wrapper position */
-        min-height: 750px !important;
-        height: auto !important;
-        z-index: 10; /* Ensure it stays above other elements */
+        margin-top: 20px !important; /* Adjusted from negative margin */
+        width: 95% !important;
+        max-width: 604px !important;
+        position: relative;
+        top: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 
     /* Ensure proper stacking of other windows */
@@ -1794,5 +1797,64 @@ body {
     #tracklist-window .image-grid a img {
         width: 100%;
         height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Improve logo centering */
+    #logo-container {
+        width: 95%;
+        margin: 5px auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: -2;
+    }
+
+    #logo {
+        width: 95%;
+        height: auto;
+        position: relative;
+        margin: 20px auto;
+        transform: none;
+        left: 0;
+    }
+
+    /* Adjust content wrapper spacing */
+    #content-wrapper {
+        margin-top: 100px; /* Reduced margin */
+        width: 100%;
+        position: relative;
+        overflow: visible;
+        z-index: 2;
+    }
+
+    /* Fix merchandise window position */
+    #merch-window {
+        order: -1;
+        margin-top: 20px !important; /* Adjusted from negative margin */
+        width: 95% !important;
+        max-width: 604px !important;
+        position: relative;
+        top: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Ensure proper stacking */
+    #desktop {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100%;
+        padding: 0;
+    }
+
+    /* Maintain spacing for other windows */
+    #home-window, #music-window, #tracklist-window {
+        margin: 20px auto !important;
+        width: 95% !important;
+        position: relative;
     }
 }
