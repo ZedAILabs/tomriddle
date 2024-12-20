@@ -1644,3 +1644,67 @@ body {
         margin-top: 20px !important;
     }
 }
+
+@media (max-width: 768px) {
+    /* Center all content */
+    #content-wrapper {
+        width: 100%;
+        padding: 0;
+        margin-top: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjust window positioning and width */
+    .window {
+        width: 95vw !important; /* Use viewport width */
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+    }
+
+    #desktop {
+        width: 100%;
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Center logo container */
+    #logo-container {
+        width: 95vw;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 auto;
+    }
+
+    /* Adjust specific windows */
+    #music-window {
+        top: 0; /* Align to the top */
+        left: 5px; /* 5px border on the left */
+        right: 5px; /* 5px border on the right */
+        transform: translate(0%, 0%); /* Fully center */
+        width: calc(100% - 10px); /* Fill the screen but leave a 5px border on left and right */
+        max-width: 95%;
+        height: auto; /* Adjust the height for smaller screens */
+    }
+
+    #music-window .window-content {
+        width: 100%;
+        height: auto; /* Adjust height dynamically */
+    }
+
+    #music-window .video-player {
+        width: 100%;
+        height: auto; /* Adjust player to screen */
+    }
+
+    #music-window .video-player iframe {
+        width: 100%;
+        height: auto; /* Ensure the iframe adjusts */
+    }
+}
