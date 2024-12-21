@@ -1737,26 +1737,62 @@ body {
         transform: translateX(-50%);
         max-width: none;
         margin-top: 20px;
-        object-fit: contain;
-        object-position: center;
     }
 
-    /* Adjust content wrapper to accommodate centered logo */
-    #content-wrapper {
-        margin-top: 200px;
+    /* Fix scrolling issues */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 110vh;
         width: 100%;
+        overflow-y: auto;
         position: relative;
-        z-index: 2;
     }
 
-    /* Keep merchandise window position relative to centered logo */
-    #merch-window { 
-        margin-top: -150px !important;
-        position: relative;
-        left: 50% !important;
-        transform: translateX(-50%) !important;
+    /* Adjust merchandise window content */
+    #merch-window {
         width: 95% !important;
         max-width: 604px !important;
-        z-index: 10;
+    }
+
+    .merch-container {
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin: -5% auto;
+    }
+
+    .purchase-form select,
+    .purchase-form button,
+    .product-details {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    /* Fix tracklist window */
+    #tracklist-window {
+        width: 500px !important;
+        height: 500px !important;
+        max-width: 95vw !important;
+        max-height: 95vw !important;
+        aspect-ratio: 1/1;
+    }
+
+    #tracklist-window .window-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+        height: calc(100% - 30px) !important;
+    }
+
+    #tracklist-window .image-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    #tracklist-window .image-grid a img {
+        width: 100%;
+        height: auto;
     }
 }
